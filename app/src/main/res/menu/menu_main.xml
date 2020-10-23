@@ -1,0 +1,10 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.authapppro.ui.MainActivity">
+    <item
+        android:id="@+id/logout"
+        android:orderInCategory="100"
+        android:title="@string/logout_label"
+        app:showAsAction="never" />
+</menu>

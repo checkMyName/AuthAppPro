@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">AuthAppPro</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello Chats fragment</string>
+    <string name="hello_second_fragment">Hello Search Fragment</string>
+    <string name="image_description">Description</string>
+    <string name="hello_blank_fragment">Hello Profile fragment</string>
+
+    <!--Auth strings START-->
+    <string name="your_name">Your name</string>
+    <string name="your_email">Your email</string>
+    <string name="your_password">Your password</string>
+    <string name="your_password_repeat">Your password repeat</string>
+    <string name="register_button_label">Register</string>
+    <string name="don_t_have_an_account_register_here">Don\'t have an Account? Register here.</string>
+    <string name="already_have_account_login_here">Already have account? Login here</string>
+    <string name="login_button_label">Login</string>
+    <string name="logout_label">Logout</string>
+
+    <!--Auth strings END-->
+</resources>

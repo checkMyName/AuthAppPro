@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:clickable="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <data>
+
+        <variable
+            name="authViewModel"
+            type="com.example.authapppro.ui.auth.AuthViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/root_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/auth_gradient"
+
+        tools:context=".ui.auth.LoginFragment">
+
+        <EditText
+            android:id="@+id/login_email"
+            style="@style/EditTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autofillHints="email"
+            android:ems="10"
+            android:hint="@string/your_email"
+            android:inputType="textEmailAddress"
+            android:text="@={authViewModel.email}"
+            app:layout_constraintBottom_toTopOf="@+id/login_password"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <EditText
+            android:id="@+id/login_password"
+            style="@style/EditTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autofillHints="password"
+            android:ems="10"
+            android:hint="@string/your_password"
+            android:inputType="textPassword"
+            android:text="@={authViewModel.password}"
+            app:layout_constraintBottom_toTopOf="@+id/login_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/login_email" />
+
+        <Button
+            android:id="@+id/login_button"
+            style="@style/ButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{()-> authViewModel.loginUser()}"
+            android:text="@string/login_button_label"
+            app:layout_constraintBottom_toTopOf="@+id/to_register_transition"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/login_password" />
+
+        <TextView
+            android:id="@+id/to_register_transition"
+            style="@style/TextViewStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/already_have_account_login_here"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/login_button" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

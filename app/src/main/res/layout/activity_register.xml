@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:clickable="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <data>
+
+        <variable
+            name="authViewModel"
+            type="com.example.authapppro.ui.auth.AuthViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/root_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/auth_gradient"
+        tools:context=".ui.auth.RegisterFragment">
+
+        <EditText
+            android:id="@+id/register_username"
+            style="@style/EditTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autofillHints="username"
+            android:ems="10"
+            android:hint="@string/your_name"
+            android:text="@={authViewModel.username}"
+            android:inputType="textPersonName"
+            app:layout_constraintBottom_toTopOf="@+id/register_email"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <EditText
+            android:id="@+id/register_email"
+            style="@style/EditTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:hint="@string/your_email"
+            android:text="@={authViewModel.email}"
+            app:layout_constraintBottom_toTopOf="@+id/register_password"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/register_username"
+            android:autofillHints="email" />
+
+        <EditText
+            android:id="@+id/register_password"
+            style="@style/EditTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:hint="@string/your_password"
+            android:text="@={authViewModel.password}"
+            app:layout_constraintBottom_toTopOf="@+id/register_password_repeat"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/register_email"
+            android:autofillHints="password" />
+
+        <EditText
+            android:id="@+id/register_password_repeat"
+            style="@style/EditTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:hint="@string/your_password_repeat"
+            android:text="@={authViewModel.passwordRepeat}"
+            app:layout_constraintBottom_toTopOf="@+id/register_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/register_password"
+            android:autofillHints="password_repeat" />
+
+        <Button
+            android:id="@+id/register_button"
+            style="@style/ButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/register_button_label"
+            android:onClick="@{()-> authViewModel.registerUser()}"
+            app:layout_constraintBottom_toTopOf="@+id/to_login_transition"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/register_password_repeat" />
+
+        <TextView
+            android:id="@+id/to_login_transition"
+            style="@style/TextViewStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/don_t_have_an_account_register_here"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/register_button" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
