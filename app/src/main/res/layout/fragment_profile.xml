@@ -7,15 +7,61 @@
     tools:context=".ui.profile.ProfileFragment">
 
     <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/profile_background"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:contentDescription="@string/image_description"
+        android:scaleType="centerCrop"
+        android:cropToPadding="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@color/ic_background"
+        android:background="@drawable/image_borders"/>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_imageView"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerInParent="true"
+        android:contentDescription="@string/image_description"
+        android:scaleType="centerCrop"
         android:src="@mipmap/ic_launcher"
+        app:civ_border_color="#FF000000"
+        app:civ_border_width="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.224"
-        android:contentDescription="@string/image_description" />
+        app:layout_constraintVertical_bias="0.215" />
+
+    <TextView
+        android:id="@+id/profile_username"
+        style="@style/TextViewStylesMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_medium"
+        app:layout_constraintEnd_toEndOf="@+id/profile_imageView"
+        app:layout_constraintStart_toStartOf="@+id/profile_imageView"
+        app:layout_constraintTop_toBottomOf="@+id/profile_imageView"
+        tools:text="Username" />
+
+    <TextView
+        android:id="@+id/profile_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Email"
+        android:layout_marginTop="@dimen/margin_medium"
+        style="@style/TextViewStylesMain"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/profile_username"
+        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintStart_toStartOf="@+id/profile_username"
+        app:layout_constraintTop_toBottomOf="@+id/profile_username"
+        app:layout_constraintVertical_bias="0.008" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

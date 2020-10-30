@@ -15,6 +15,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:hint="@string/search_editText_label"
         android:autofillHints=""
+        style="@style/EditTextStyleMain"
         android:inputType="textPersonName" />
 
     <androidx.recyclerview.widget.RecyclerView

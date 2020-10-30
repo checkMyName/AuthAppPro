@@ -22,7 +22,7 @@
 
         <EditText
             android:id="@+id/register_username"
-            style="@style/EditTextStyle"
+            style="@style/EditTextStyleAuth"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:autofillHints="username"
@@ -39,7 +39,7 @@
 
         <EditText
             android:id="@+id/register_email"
-            style="@style/EditTextStyle"
+            style="@style/EditTextStyleAuth"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -55,7 +55,7 @@
 
         <EditText
             android:id="@+id/register_password"
-            style="@style/EditTextStyle"
+            style="@style/EditTextStyleAuth"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -71,7 +71,7 @@
 
         <EditText
             android:id="@+id/register_password_repeat"
-            style="@style/EditTextStyle"
+            style="@style/EditTextStyleAuth"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -87,7 +87,7 @@
 
         <Button
             android:id="@+id/register_button"
-            style="@style/ButtonStyle"
+            style="@style/ButtonStyleAuth"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/register_button_label"
@@ -100,7 +100,7 @@
 
         <TextView
             android:id="@+id/to_login_transition"
-            style="@style/TextViewStyle"
+            style="@style/TextViewStyleAuth"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/don_t_have_an_account_register_here"
