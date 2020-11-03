@@ -22,6 +22,8 @@
     <string name="login_button_label">Login</string>
     <string name="logout_label">Logout</string>
     <string name="search_editText_label">Search users by name</string>
+    <string name="messaging_send_button">Send</string>
+    <string name="messaging_enter_edit_text">Enter message</string>
 
     <!--Auth strings END-->
 </resources>

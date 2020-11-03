@@ -60,7 +60,7 @@ class ProfileFragment : Fragment() {
                         profile_email.text = user?.email
 
                         if (user?.profileUrl == "Default") {
-                            profile_imageView.setImageResource(R.drawable.ic_account)
+                            profile_imageView.setImageResource(R.drawable.ic_profile)
                         } else {
                             Picasso.get().load(user?.profileUrl).into(profile_imageView)
                         }

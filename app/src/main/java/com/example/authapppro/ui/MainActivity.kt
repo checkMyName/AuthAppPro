@@ -61,7 +61,7 @@ class MainActivity : AppCompatActivity() {
                     user_name.text = user?.username
 
                     if (user?.profileUrl == "Default") {
-                        profile_image.setImageResource(R.drawable.ic_account)
+                        profile_image.setImageResource(R.drawable.ic_profile)
                     } else {
                         Picasso.get().load(user?.profileUrl).into(profile_image)
                     }

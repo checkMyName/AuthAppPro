@@ -10,13 +10,15 @@ import kotlinx.android.synthetic.main.search_item.view.*
 class SearchItem(val user: User) : Item<GroupieViewHolder>() {
     override fun bind(viewHolder: GroupieViewHolder, position: Int) {
         viewHolder.apply {
-            viewHolder.itemView.username_item_textView.text = user.username
+           itemView.username_item_textView.text = user.username
 
             if (user.profileUrl == "Default") {
-                viewHolder.itemView.search_item_profileView.setImageResource(R.drawable.ic_account)
+                viewHolder.itemView.search_item_profileView.setImageResource(R.drawable.ic_profile)
             } else {
-                Picasso.get().load(user.profileUrl).into(viewHolder.itemView.search_item_profileView)
+                Picasso.get().load(user.profileUrl).into(itemView.search_item_profileView)
             }
+
+            //FOOL
         }
     }
 

@@ -22,13 +22,13 @@
             app:layout_constraintHorizontal_bias="0.048"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:src="@mipmap/ic_launcher" />
+            android:background="@drawable/ic_profile" />
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/status_item_imageView"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            tools:background="@color/colorGreen"
+            tools:background="@drawable/status_online"
             app:layout_constraintBottom_toBottomOf="@+id/search_item_profileView"
             app:layout_constraintEnd_toEndOf="@+id/search_item_profileView"
             app:layout_constraintHorizontal_bias="1.0"

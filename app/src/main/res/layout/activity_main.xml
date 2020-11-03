@@ -24,8 +24,10 @@
                 android:id="@+id/profile_image"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@mipmap/ic_launcher"
-                android:contentDescription="@string/image_description" />
+                android:background="@drawable/ic_profile"
+                android:backgroundTint="@android:color/white"
+                android:contentDescription="@string/image_description"
+                tools:ignore="UnusedAttribute" />
 
             <TextView
                 android:id="@+id/user_name"
