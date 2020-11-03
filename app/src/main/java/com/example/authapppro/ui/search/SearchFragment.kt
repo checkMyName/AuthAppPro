@@ -67,10 +67,6 @@ class SearchFragment : Fragment() {
             override fun onDataChange(snap: DataSnapshot) {
                 groupAdapter.clear()
 
-                //val users = snap.getValue(User::class.java)
-
-                //Log.i("SearchFragment", "Username ${users?.username}")
-
                 if (!search_editText.text.equals("")) {
                     for (snapshot in snap.children) {
 
