@@ -3,10 +3,13 @@ package com.example.authapppro.ui.chats
 import android.app.ProgressDialog
 import android.content.Intent
 import android.net.Uri
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import com.example.authapppro.R
+import com.example.authapppro.model.Message
 import com.example.authapppro.model.User
 import com.example.authapppro.ui.search.SearchFragment.Companion.USER_KEY
 import com.google.android.gms.tasks.Continuation
@@ -21,9 +24,11 @@ import com.google.firebase.storage.StorageTask
 import com.google.firebase.storage.UploadTask
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_messaging.*
+import java.time.LocalDateTime
 
 const val REQUEST_CODE = 1
 
+@RequiresApi(Build.VERSION_CODES.O)
 class MessagingActivity : AppCompatActivity() {
 
     private val fUser = FirebaseAuth.getInstance().currentUser
@@ -70,9 +75,8 @@ class MessagingActivity : AppCompatActivity() {
         }
 
         messaging_attach_button.setOnClickListener {
-            val intent = Intent()
+            val intent = Intent(Intent.ACTION_PICK)
             intent.apply {
-                action = Intent.ACTION_GET_CONTENT
                 type = "image/*"
             }
             startActivityForResult(Intent.createChooser(intent, "Select image"), REQUEST_CODE)
@@ -80,18 +84,29 @@ class MessagingActivity : AppCompatActivity() {
 
     }
 
+
     private fun sendMessage(senderId: String, receiverId: String?, message: String) {
         val messageKey = reference.push().key
 
-        val messageHashMap = HashMap<String, Any>()
+        /*val messageHashMap = HashMap<String, Any>()
         messageHashMap["sender"] = senderId
         messageHashMap["message"] = message
         messageHashMap["receiver"] = receiverId.toString()
         messageHashMap["is_seen"] = false
         messageHashMap["url"] = "Default"
-        messageHashMap["message_id"] = messageKey.toString()
+        messageHashMap["message_id"] = messageKey.toString()*/
 
-        reference.child("chats").child(messageKey!!).setValue(messageHashMap)
+        val messageMap = Message(
+            messageKey.toString(),
+            senderId,
+            receiverId.toString(),
+            message,
+            false,
+            "Default",
+            LocalDateTime.now()
+        )
+
+        reference.child("chats").child(messageKey!!).setValue(messageMap)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     chatListSenderReference
@@ -110,7 +125,8 @@ class MessagingActivity : AppCompatActivity() {
                                 .child("chat_list")
                                 .child(visitUser?.uid.toString())
                                 .child(fUser?.uid.toString())
-                            chatListReceiverReference.child("id").setValue(fUser?.uid)
+
+                                //chatListReceiverReference.child("id").setValue(fUser?.uid)
                         }
 
                         override fun onCancelled(error: DatabaseError) {
@@ -157,15 +173,26 @@ class MessagingActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     val url = task.result.toString()
 
-                    val messageHashMap = HashMap<String, Any>()
+                    /*val messageHashMap = HashMap<String, Any>()
                     messageHashMap["sender"] = fUser!!.uid
                     messageHashMap["message"] = "sent you an image"
                     messageHashMap["receiver"] = visitUser?.uid.toString()
                     messageHashMap["is_seen"] = false
                     messageHashMap["url"] = url
-                    messageHashMap["message_id"] = messageId.toString()
+                    messageHashMap["message_id"] = messageId.toString()*/
 
-                    ref.child("chats").child(messageId!!).setValue(messageHashMap)
+                    val message = Message(
+                        messageId.toString(),
+                        fUser?.uid.toString(),
+                        visitUser?.uid.toString(),
+                        "sent you an image",
+                        false,
+                        "Default",
+                        LocalDateTime.now()
+                    )
+
+
+                    ref.child("chats").child(messageId!!).setValue(message)
 
                     progressDialog.dismiss()
                 }
